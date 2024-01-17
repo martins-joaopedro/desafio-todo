@@ -30,6 +30,11 @@ public class TodoService {
         return todoRepository.findAll(sorted);
     }
 
+    public Todo listOneTodo(Long id) {
+        System.out.println(todoRepository.findById(id).get());
+        return todoRepository.findById(id).get();
+    }
+
     public List<Todo> update(Todo todo) {
         this.todoRepository.save(todo);
         return list();

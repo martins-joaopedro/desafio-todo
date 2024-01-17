@@ -38,6 +38,11 @@ public class TodoController {
         return this.todoService.list();
     }
 
+    @GetMapping("{id}")
+    public Todo listOneTodo(@PathVariable Long id) {
+        return this.todoService.listOneTodo(id);
+    }
+
     @PutMapping
     public List<Todo> update(@RequestBody Todo todo) {
         return this.todoService.update(todo);
