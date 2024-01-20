@@ -1,5 +1,4 @@
 package br.com.joaopd_mcr.desafiotodo.service;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import br.com.joaopd_mcr.desafiotodo.entity.Todo;
@@ -23,11 +22,7 @@ public class TodoService {
     }
 
     public List<Todo> list() {
-        Sort sorted = Sort.by("prioridade").descending().and(
-            Sort.by("nome").ascending()
-        );
-
-        return todoRepository.findAll(sorted);
+        return todoRepository.findAll();
     }
 
     public Todo listOneTodo(Long id) {
