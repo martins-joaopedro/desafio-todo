@@ -26,7 +26,7 @@ public class TodoController {
     }
 
     @PostMapping
-    public List<Todo> create (@RequestBody Todo todo) {
+    public Todo create (@RequestBody Todo todo) {
         return this.todoService.create(todo);
     }
 
@@ -41,12 +41,12 @@ public class TodoController {
     }
 
     @PutMapping
-    public List<Todo> update(@RequestBody Todo todo) {
-        return this.todoService.update(todo);
+    public void update(@RequestBody Todo todo) {
+        this.todoService.update(todo);
     }
 
     @DeleteMapping("{id}")
-    public List<Todo> delete(@PathVariable Long id) {
-        return this.todoService.delete(id);
+    public void delete(@PathVariable Long id) {
+        this.todoService.delete(id);
     }
 }

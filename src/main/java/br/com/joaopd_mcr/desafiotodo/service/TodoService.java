@@ -1,4 +1,5 @@
 package br.com.joaopd_mcr.desafiotodo.service;
+import org.apache.catalina.connector.Response;
 import org.springframework.stereotype.Service;
 
 import br.com.joaopd_mcr.desafiotodo.entity.Todo;
@@ -15,10 +16,9 @@ public class TodoService {
         this.todoRepository = todoRepository;
     }
 
-    public List<Todo> create(Todo todo) {
-        this.todoRepository.save(todo);
-        
-        return list();
+    public Todo create(Todo todo) {
+        Todo createdTodo = this.todoRepository.save(todo);
+        return createdTodo;
     }
 
     public List<Todo> list() {
@@ -30,13 +30,11 @@ public class TodoService {
         return todoRepository.findById(id).get();
     }
 
-    public List<Todo> update(Todo todo) {
+    public void update(Todo todo) {
         this.todoRepository.save(todo);
-        return list();
     }
 
-    public List<Todo> delete(Long id) {
+    public void delete(Long id) {
         this.todoRepository.deleteById(id);
-        return list();
     }
 }
